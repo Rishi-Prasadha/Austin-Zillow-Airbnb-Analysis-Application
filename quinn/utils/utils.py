@@ -4,14 +4,14 @@ import questionary
 import pandas as pd
 from pathlib import Path
 
-airbnb_data = pd.DataFrame(Path("../../britt/listings.csv"))
+airbnb_data = pd.read_csv(Path("../britt/listings.csv"))
 clean_airbnb_df = airbnb_data.loc[:, ('id', 'host_neighbourhood', 'neighbourhood_cleansed', 'latitude', 'longitude', 'room_type', 'accommodates', 'bedrooms', 'bathrooms_text', 'price', 'review_scores_rating')]
 values = ['Private room', 'Shared room', 'Hotel room']
 clean_airbnb_df = clean_airbnb_df[clean_airbnb_df.room_type.isin(values) == False]
 
 def enter_zip():
     zip = questionary.text('Enter the zip code for the neighborhood you would like to research').ask()
-    zip = int(zip)
+    zip = str(zip)
     if len(zip) > 5 or len(zip) < 5:
         print(f'The zip code must be 5 digits long')
         sys.exit()
@@ -52,7 +52,7 @@ def get_beds():
         print(f'The number of beds must be an integer')
         sys.exit()
     else:
-        included_bed = airbnb_df['bedrooms'].tolist()
+        included_bed = clean_airbnb_df['bedrooms'].tolist()
         for data in included_bed:
             if num_beds == data:
                 return num_beds
