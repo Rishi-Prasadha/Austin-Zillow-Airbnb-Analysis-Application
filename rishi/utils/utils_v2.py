@@ -2,6 +2,7 @@
 
 import fire
 import sys
+import numpy as np
 import questionary
 import pandas as pd
 from pathlib import Path
@@ -20,41 +21,49 @@ def enter_zip():
     elif type(zip) != int:
         print("Error: zip code must be a number integer")
     else:
-        included_zipcodes = airbnb_data['neighbourhood_cleansed'].tolist()
+        included_zipcodes = clean_airbnb_df['neighbourhood_cleansed'].tolist()
         for data in included_zipcodes:
-            if zip == int(data):
+            if data != np.nan:
+                continue
+            elif zip == int(data):
                 return zip
             else:
                 print('Error: the zip code you requested cannot be identified')
                 sys.exit()
 
 
-def get_accomodations():
+def get_accomodations(zip):
     num_people = questionary.text("Enter the amount of people coming with you:").ask()
     num_people = int(num_people)
     if type(num_people) != int:
         print("Error: Number of people must be an integer")
         sys.exit()
     else:
-        included_people = airbnb_data['accommodates'].tolist()
+        temp_df = clean_airbnb_df[clean_airbnb_df['neighbourhood_cleansed'] == zip]
+        included_people = temp_df['accommodates'].tolist()
         for data in included_people:
-            if num_people == int(data):
+            if data == np.nan:
+                continue
+            elif num_people <= int(data):
                 return num_people
             else:
                 print("Error: The number of people is not supported by any listing")
                 sys.exit()
 
 
-def get_beds():
+def get_beds(zip):
     num_beds = questionary.text("Enter the amount of bedrooms:").ask()
     num_beds = int(num_beds)
     if type(num_beds) != int:
         print("Error: Number of people must be an integer")
         sys.exit()
     else:
-        included_bed = airbnb_data['bedrooms'].tolist()
-        for data in int(included_bed):
-            if num_beds == data:
+        temp_df = clean_airbnb_df[clean_airbnb_df['neighbourhood_cleansed'] == zip]
+        included_bed = temp_df['bedrooms'].tolist()
+        for data in included_bed:
+            if data == np.nan:
+                continue
+            elif num_beds <= int(data): 
                 return num_beds
             else:
                 print("Error: The number of people is not supported by any listing")
