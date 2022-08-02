@@ -58,4 +58,7 @@ def get_beds():
             else:
                 print("Error: The number of people is not supported by any listing")
                 sys.exit()
-    
+
+def get_nights():
+    nights = questionary.text("How many nights are you planning to stay?").ask()
+    return nights
