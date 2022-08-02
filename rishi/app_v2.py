@@ -9,18 +9,17 @@ from utils.calculations_v2 import *
 
 def run():
     """The main function for running the script."""
+    # Load the zip code from user
+    zipcode = enter_zip()
 
-    # Load the latest Bank data
-    bank_data = load_bank_data()
+    # Ask user for bedrooms and guests
+    bedrooms = get_beds()
+    guests = get_accomodations()
 
-    # Get the applicant's information
-    credit_score, debt, income, loan_amount, home_value = get_applicant_info()
+    # Run necessary calculations
+    average, stddev = calculations(zipcode, bedrooms, guests)
 
-    # Find qualifying loans
-    qualifying_loans = find_qualifying_loans(
-        bank_data, credit_score, debt, income, loan_amount, home_value
-    )
-
+    
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
 
