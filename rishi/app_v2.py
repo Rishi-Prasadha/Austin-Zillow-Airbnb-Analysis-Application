@@ -20,10 +20,9 @@ def run():
     # Run necessary calculations
     average, stddev = calculations(zipcode, bedrooms, guests)
 
+    # Prints results for the user
     print(f'Based on your search criteria, you can expect to spend an average of ${nights*average:.2f}.')
     print(f'You can realistically expect to spend between ${nights*(average - stddev):.2f} and ${night*(average - stddev):.2f}')
-    # Save qualifying loans
-    save_qualifying_loans(qualifying_loans)
 
 
 if __name__ == "__main__":
