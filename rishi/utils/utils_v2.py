@@ -6,7 +6,7 @@ import questionary
 import pandas as pd
 from pathlib import Path
 
-airbnb_data = pd.DataFrame(Path("../Resources/austin_airbnb_data.csv"))
+airbnb_data = pd.DataFrame(Path("../../britt/listings.csv"))
 
 def enter_zip():
     zip = questionary.text("Enter the zip code you're interested in staying in:").ask()
@@ -17,7 +17,7 @@ def enter_zip():
     elif type(zip) != int:
         print("Error: zip code must be a number integer")
     else:
-        included_zipcodes = airbnb_data['Zip Code'].tolist()
+        included_zipcodes = airbnb_data['neighbourhood_cleansed'].tolist()
         for data in included_zipcodes:
             if zip == data:
                 return zip
@@ -25,29 +25,34 @@ def enter_zip():
                 print('Error: the zip code you requested cannot be identified')
                 sys.exit()
 
+def get_accomodations():
+    num_people = questionary.text("Enter the amount of people coming with you:").ask()
+    num_people = int(num_people)
+    if type(num_people) != int:
+        print("Error: Number of people must be an integer")
+        sys.exit()
+    else:
+        included_people = airbnb_data['accommodates'].tolist()
+        for data in included_people:
+            if num_people == data:
+                return num_people
+            else:
+                print("Error: The number of people is not supported by any listing")
+                sys.exit()
+
+
 def get_beds():
-    beds = questionary.select("How many bedrooms would you like?",
-    choices= [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6'
-    ])
-    return beds
+    num_beds = questionary.text("Enter the amount of bedrooms:").ask()
+    num_beds = int(num_beds)
+    if type(num_beds) != int:
+        print("Error: Number of people must be an integer")
+        sys.exit()
+    else:
+        included_bed = airbnb_data['bedrooms'].tolist()
+        for data in included_bed:
+            if num_beds == data:
+                return num_beds
+            else:
+                print("Error: The number of people is not supported by any listing")
+                sys.exit()
     
-def get_baths():    
-    baths = questionary.select("How many bathrooms would you like?",
-    choices= [
-        '1',
-        '1.5',
-        '2',
-        '2.5',
-        '3',
-        '3.5',
-        '4',
-        '4.5',
-        '5'
-    ])
-    return baths
