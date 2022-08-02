@@ -4,8 +4,8 @@ import questionary
 import pandas as pd
 from pathlib import Path
 
-airbnb_data = pd.DataFrame(Path("../../britt/listings.csv"))
-clean_airbnb_df = airbnb_df.loc[:, ('id', 'host_neighbourhood', 'neighbourhood_cleansed', 'latitude', 'longitude', 'room_type', 'accommodates', 'bedrooms', 'bathrooms_text', 'price', 'review_scores_rating')]
+airbnb_data = pd.read_csv(Path("../britt/listings.csv"))
+clean_airbnb_df = airbnb_data.loc[:, ('id', 'host_neighbourhood', 'neighbourhood_cleansed', 'latitude', 'longitude', 'room_type', 'accommodates', 'bedrooms', 'bathrooms_text', 'price', 'review_scores_rating')]
 values = ['Private room', 'Shared room', 'Hotel room']
 clean_airbnb_df = clean_airbnb_df[clean_airbnb_df.room_type.isin(values) == False]
 
