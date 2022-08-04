@@ -11,17 +11,17 @@ clean_airbnb_df = clean_airbnb_df[clean_airbnb_df.room_type.isin(values) == Fals
 
 def enter_zip():
     zip = questionary.text('Enter the zip code for the neighborhood you would like to research').ask()
-    zip = str(zip)
-    if len(zip) > 5 or len(zip) < 5:
+    zip = int(zip)
+    if len(str(zip)) > 5 or len(str(zip)) < 5:
         print(f'The zip code must be 5 digits long')
         sys.exit()
     elif type(zip) != int:
         print(f'The zip code must be an integer')
         sys.exit()
     else:
-        included_zipcodes = clean_airbnb_df
+        included_zipcodes = clean_airbnb_df['neighbourhood_cleansed'].tolist()
         for data in included_zipcodes:
-            if zip == data:
+            if zip == int(data):
                 return zip
             else:
                 print('The zip you requested cannot be found')
