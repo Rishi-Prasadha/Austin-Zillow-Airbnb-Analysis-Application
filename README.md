@@ -1,12 +1,29 @@
 # Austin Zillow/Airbnb Analysis Application
 
-This application starts off by analyzing Airbnb. We look at what areas of Austin seem to do the best for Airbnb. We look at the average pricing to determine that. We are also using the Zillow data from 2010 to predict the housing market with the upcoming recession. Then, we compare with houses for sale on Zillow to match houses that an investor could buy to rent as an Airbnb for profit.
+This application starts off by analyzing Zillow data. We begin by training a linear regression model on the Great Recession of 2007-2009 to determine if we are capable of building an application that can help real estate investors decide to either purchase or wait to purchase propwerty in Austin. We then look at what areas of Austin seem to do the best for Airbnb. We look at the average pricing to determine that. Although our Zillow linear regression models were less than satisfactory; using the Airbnb data we were still able to make recommendations on which zip codes are currently best to invest in for prospective real estate investors. 
 
 ---
 
 ## Technologies
 
-This application is written in Python. The main Python libraries used are [Pandas](https://github.com/pandas-dev/pandas), [Numpy](https://github.com/numpy/numpy), and [hvplot](https://github.com/holoviz/hvplot).
+This application is written in Python. The main Python libraries used are 
+* [Pandas](https://github.com/pandas-dev/pandas)
+* [Numpy](https://github.com/numpy/numpy)
+* [hvplot](https://github.com/holoviz/hvplot)
+
+---
+
+## Libraries
+
+This analysis used extensive plotting with the hvplot library. Import statements already present in program, refer to them below:
+
+```python
+import numpy as np
+import pandas as pd
+import hvplot.pandas
+import numpy as np
+import math
+```
 
 ---
 
@@ -30,7 +47,7 @@ To install hvplot, go to your terminal and run the following command:
 
 ## Usage
 
-This is mainly for analysis of data. You can go through the graphs and widgets to see what types of houses and what areas of Austin are most profitable. 
+This is mainly for analysis of real estate data in Austin between 2000 and 2022. You can go through the graphs and widgets to see what types of houses and what areas of Austin are most profitable. 
 
 ---
 
