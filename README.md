@@ -71,6 +71,7 @@ In terms of popularity and availability, the most popular Airbnb Zip Codes (aka 
 ![Top Five](pics/top%20five.png)
 
 You can see that the top four profitable zip codes and the top five most popular zip codes don't match. So we could take this analysis a step further and see what is the yearly profit by taking the number of booked days times the price per night to determine where the best location is to be.
+
 ---
 ## Contributors
 
