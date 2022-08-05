@@ -56,7 +56,7 @@ All analysis were done on a Jupyter Notebook, so as long as the above packages h
 <img width="817" alt="Screen Shot 2022-08-04 at 21 02 56" src="https://user-images.githubusercontent.com/107497500/182985885-6de971c4-295c-4a3e-b6b7-8b255bb661f9.png">
 
 
-The black lines in the middle of the bars indicate the price of homes predicted by the regression model. As a result it can be concluded that our models consistenly, across all three months of the testing set and all zip codes, consistently under predicts the value of homes in said zip code. In terms of numbers we are looking at a 60-70% change between the predicted experimental model and the actual data. As a result we are confident in moving forward and using the derived models for any predictive capability.
+The black lines in the middle of the bars indicate the price of homes predicted by the regression model. As a result it can be concluded that our models consistenly, across all three months of the testing set and all zip codes, consistently under predicts the value of homes in said zip code. In terms of numbers we are looking at a 60-70% change between the predicted experimental model and the actual data. As a result we are not confident in moving forward and using the derived models for any predictive capability.
 
 From the Airbnb analysis we found that the top four zip codes denote by this graph in terms of average price per night are 78732, 78730, 78733, and 78746.
 
