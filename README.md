@@ -47,10 +47,17 @@ To install hvplot, go to your terminal and run the following command:
 
 ## Usage
 
-This is mainly for analysis of real estate data in Austin between 2000 and 2022. You can go through the graphs and widgets to see what types of houses and what areas of Austin are most profitable. 
+All analysis were done on a Jupyter Notebook, so as long as the above packages have been installed in the dev environment, these notebooks will run smoothly. You can go through the graphs and widgets to see what types of houses and what areas of Austin are most profitable. 
 
 ---
 
+## Results 
+
+<img width="1399" alt="Screen Shot 2022-08-04 at 13 16 07" src="https://user-images.githubusercontent.com/107497500/182984555-c1f23ac3-5a59-4ac1-99d0-cc0e725608bd.png">
+
+The black lines in the middle of the bars indicate the price of homes predicted by the regression model. As a result it can be concluded that our models consistenly, across all three months and all zip codes, consistently under predicts the value of homes in said zip code. In terms of numbers we are looking at a 60-70% change between the predicted experimental model and the actual data. As a result we are confident in moving forward and using the derived models for any predictive capability.
+
+---
 ## Contributors
 
 Brittanie Polasek, Rishi Prasadha, and Quinn Strobe
